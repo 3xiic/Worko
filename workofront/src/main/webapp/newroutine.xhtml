@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Worko New Routine</title>
+	<link rel="stylesheet" type="text/css" href="theme.css" />
+	<h:outputStylesheet library="webjars"
+		name="primeflex/3.3.1/primeflex.min.css" />
+</h:head>
+
+<h:body>
+	<div class="header">
+		<div class="title-container">
+			<h1 class="text-white m-0">WORKO</h1>
+		</div>
+		<div class="select-container">
+			<p:button value="Home" styleClass="signin-buttons"
+				action="#{navigationBean.goHome}" />
+			<p:button value="Usuario" styleClass="signin-buttons"
+				action="#{navigationBean.goUsuario}" />
+			<p:button value="Ejercicio" styleClass="signin-buttons"
+				action="#{navigationBean.goEjercicio}" />
+		</div>
+	</div>
+	<div class="routine-container">
+		<h2>Crea tu propia rutina</h2>
+		<p>Aquí podrás personalizar tu propia rutina</p>
+		<h:form id="routineForm" styleClass="form" >
+			<p:inputText id="nombreRutina" value="#{routineBean.nombreRutina}"
+				placeholder="Nombre de la rutina" required="true" />
+			<p:inputText id="descripcionRutina"
+				value="#{routineBean.descripcionRutina}"
+				placeholder="Descripción de la rutina" required="true" />
+			<p:selectOneMenu id="dificultadRutina"
+				value="#{routineBean.dificultadRutina}" required="true">
+				<f:selectItem itemLabel="Selecciona la dificultad" itemValue="" />
+				<f:selectItem itemLabel="Fácil" itemValue="facil" />
+				<f:selectItem itemLabel="Media" itemValue="media" />
+				<f:selectItem itemLabel="Difícil" itemValue="dificil" />
+			</p:selectOneMenu>
+			<p:commandButton value="CREAR RUTINA" action="#{routineBean.confirmar}" />
+			
+		</h:form>
+	</div>
+</h:body>
+</html>

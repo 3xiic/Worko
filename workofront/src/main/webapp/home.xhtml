@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+	<h:head>
+		<title>Worko Home</title>
+		<link rel="stylesheet" type="text/css" href="theme.css" />
+		<h:outputStylesheet library="webjars"
+			name="primeflex/3.3.1/primeflex.min.css" />
+	</h:head>
+	
+	<h:body>
+		<div class="header">
+	        <h1 class="">WORKO</h1>
+	        <div class="buttons-header">
+		        <p:button icon="pi pi-home" styleClass="rounded-button ui-button-secondary"/>
+		        <p:button icon="pi pi-user" styleClass="rounded-button ui-button-secondary"/>
+	        </div>
+	    </div>
+
+		<div class="options-container">
+			<div class="options">
+				<p:graphicImage library="imgs" name="training-img.png"/>
+				<p:button value="Realizar Entrenamiento" styleClass="options-buttons" />
+			</div>
+			<div class="options">
+				<p:graphicImage library="imgs" name="routine-img.png"/>
+				<p:button value="Crear Rutina" styleClass="options-buttons" />
+			</div>
+			<div class="options">
+				<p:graphicImage library="imgs" name="search-img.png"/>
+				<p:button value="Explorar Rutinas" styleClass="options-buttons" />
+			</div>
+		</div>
+		
+		<div class="trainings-container">
+			<h1>ENTRENAMIENTOS REALIZADOS</h1>
+		</div>
+	</h:body>
+</html>

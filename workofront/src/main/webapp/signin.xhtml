@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+	<h:head>
+		<title>Worko Sign In</title>
+		<link rel="stylesheet" type="text/css" href="theme.css" />
+		<h:outputStylesheet library="webjars"
+			name="primeflex/3.3.1/primeflex.min.css" />
+	</h:head>
+<h:body>
+    <div class="header">
+		<h1>WORKO</h1>
+		<p:button value="LOG IN" styleClass="sign-in-button"/>
+    </div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="register-form col-md-10 col-lg-8">
+                <h2>SIGN IN</h2>
+                <h:form>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <h:outputLabel for="firstName" value="Nombres:"/>
+                            <p:inputText id="firstName" value="#{register.firstName}" required="true"/>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <h:outputLabel for="lastName" value="Apellidos:"/>
+                            <p:inputText id="lastName" value="#{register.lastName}" required="true"/>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <h:outputLabel for="username" value="Usuario:"/>
+                            <p:inputText id="username" value="#{register.username}" required="true"/>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <h:outputLabel for="email" value="Correo:"/>
+                            <p:inputText id="email" value="#{register.email}" required="true"/>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <h:outputLabel for="gender" value="Género:"/>
+                            <p:inputText id="gender" value="#{register.gender}" required="true"/>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <h:outputLabel for="age" value="Edad:"/>
+                            <p:inputText id="age" value="#{register.age}" required="true"/>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <h:outputLabel for="height" value="Altura:"/>
+                            <p:inputText id="height" value="#{register.height}" required="true"/>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <h:outputLabel for="weight" value="Peso:"/>
+                            <p:inputText id="weight" value="#{register.weight}" required="true"/>
+                        </div>
+                    </div>
+                    <div class="form-button">
+                    	<p:commandButton styleClass="form-button" value="REGISTRARSE" action="#{register.register}" ajax="false"/>
+                    </div>
+                </h:form>
+                <p>¿Ya tienes una cuenta? <a href="#">Inicia Sesión aquí.</a></p>
+            </div>
+        </div>
+    </div>
+</h:body>
+</html>

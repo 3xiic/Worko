@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Create Routine</title>
+	<link rel="stylesheet" type="text/css" href="theme.css" />
+	<h:outputStylesheet library="webjars"
+		name="primeflex/3.3.1/primeflex.min.css" />
+</h:head>
+
+<h:body style="text-align:center">
+	<div class="header">
+		<div class="title-container">
+			<h1 class="text-white m-0">WORKO</h1>
+		</div>
+		<div class="buttons-header">
+			<p:button icon="pi pi-home"
+				styleClass="rounded-button ui-button-secondary" />
+			<p:button icon="pi pi-user"
+				styleClass="rounded-button ui-button-secondary" />
+		</div>
+	</div>
+
+	<div class="exercise-container">
+		<p:carousel value="#{TrainingRoutineBean.exercises}" var="exercise"
+			varStatus="status" numVisible="1" numScroll="1">
+			<h:form>
+				<div class="">
+					<p>Ejercicio #{status.index + 1} de
+						#{TrainingRoutineBean.exercises.size()}</p>
+					<h1>#{exercise.name}</h1>
+					<p id="time">Tiempo: #{TrainingRoutineBean.seconds}</p>
+				</div>
+				<p class="p-sets">Recuerda que son:
+					#{TrainingRoutineBean.setsAndReps}</p>
+				<p:video value="#{exercise.url}" player="mp4" controls="true"
+					width="720" height="400"
+					onplay="console.log('MP4 Started Playing')"
+					onpause="console.log('MP4 Stopped Playing')">
+				        Your browser does not support the video element.
+				        See: <h:outputLink
+						value="https://www.w3schools.com/html/html5_video.asp">HTML5 Video</h:outputLink>
+				</p:video>
+				<div class="exercise-button">
+					<p:commandButton icon="pi pi-check"
+						styleClass="rounded-button ui-button-info"
+						value="Iniciar entrenamiento"
+						action="#{TrainingRoutineBean.startTimer}" update="@form"
+						rendered="#{status.index == 0}" />
+						 <f:ajax event="click" render="@form" />
+					<p:commandButton icona="pi pi-check"
+						styleClass="rounded-button ui-button-info"
+						value="Finalizar Entrenamiento"
+						action="#{TrainingRoutineBean.create}" update="@form"
+						rendered="#{status.index == (TrainingRoutineBean.exercises.size() - 1)}" />
+				 <f:ajax event="click" render="@form" />
+				</div>
+			</h:form>
+		</p:carousel>
+	</div>
+	<p:growl id="growl-sticky" for="sticky-key" showDetail="true"
+		sticky="true" />
+</h:body>
+</html>
